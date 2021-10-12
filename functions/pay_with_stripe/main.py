@@ -26,8 +26,6 @@ import time
 from google.cloud import firestore
 from google.cloud import pubsub_v1
 
-from opencensus.trace.tracer import Tracer
-
 import stripe
 
 API_KEY = os.environ.get('STRIPE_API_KEY')
