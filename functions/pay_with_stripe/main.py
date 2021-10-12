@@ -27,9 +27,9 @@ from google.cloud import firestore
 from google.cloud import pubsub_v1
 
 
-from opencensus.common.transports.async_ import AsyncTransport
-from opencensus.ext.stackdriver.trace_exporter import StackdriverExporter
 from opencensus.trace.tracer import Tracer
+from opencensus.trace.exporters import stackdriver_exporter
+from opencensus.trace.exporters.transports.background_thread import BackgroundThreadTransport
 
 import stripe
 
@@ -39,7 +39,7 @@ PUBSUB_TOPIC_PAYMENT_COMPLETION = os.environ.get('PUBSUB_TOPIC_PAYMENT_COMPLETIO
 
 firestore = firestore.Client()
 publisher = pubsub_v1.PublisherClient()
-sde = StackdriverExporter.StackdriverExporter()
+sde = stackdriver_exporter.StackdriverExporter()
 stripe.api_key = API_KEY
 
 def pay_with_stripe(data, context):
