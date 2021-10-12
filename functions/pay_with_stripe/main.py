@@ -26,7 +26,6 @@ import time
 from google.cloud import firestore
 from google.cloud import pubsub_v1
 
-from opencensus.common.transports.async_ import AsyncTransport
 from opencensus.ext.stackdriver.trace_exporter import StackdriverExporter
 from opencensus.trace.tracer import Tracer
 
