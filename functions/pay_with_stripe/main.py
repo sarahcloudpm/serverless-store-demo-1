@@ -25,9 +25,11 @@ import time
 
 from google.cloud import firestore
 from google.cloud import pubsub_v1
+
+from opencensus.common.transports.async_ import AsyncTransport
+from opencensus.ext.stackdriver.trace_exporter import StackdriverExporter
 from opencensus.trace.tracer import Tracer
-from opencensus.trace.exporters import stackdriver_exporter
-from opencensus.trace.exporters.transports.background_thread import BackgroundThreadTransport
+
 import stripe
 
 API_KEY = os.environ.get('STRIPE_API_KEY')
